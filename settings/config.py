@@ -7,9 +7,8 @@ load_dotenv()
 VERSION = '1.0'
 AUTHOR = 'Vasiliy Turtugeshev'
 
-
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-
+WEATHER_TOKEN = os.getenv('WEATHER_TOKEN')
 
 KEYBOARD = {
     "FAST_FORWARD_BUTTON": emojize(':fast-forward_button:'),
