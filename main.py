@@ -1,12 +1,9 @@
 import requests
 from aiogram import types, executor
-from aiogram.dispatcher.filters import Command
-from aiogram.dispatcher import FSMContext
 
 from bot import dp, bot
 from handler_weather import register_weather_handler
 from handler_converter import register_currency_converter_handler
-from settings import config
 from markups import markup
 
 
@@ -17,9 +14,11 @@ async def start(message: types.Message):
         reply_markup=markup.MainMarkup.main_markup())
 
 
+#  Хэндлер для котиков
 @dp.callback_query_handler(text="user_watching_animals", state="*")
 async def animals(callback: types.CallbackQuery):
     await bot.delete_message(callback.from_user.id, callback.message.message_id)
+    #  Парсим данные из бесплатной API
     r = requests.get(url="https://api.thecatapi.com/v1/images/search")
     animal = r.json()
     await bot.send_photo(callback.from_user.id,
@@ -30,6 +29,7 @@ async def animals(callback: types.CallbackQuery):
 
 
 async def on_startup(_):
+    #  При запуске бота, регистрируются нужные хэндлеры
     register_weather_handler(dp)
     register_currency_converter_handler(dp)
 
