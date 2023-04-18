@@ -3,9 +3,9 @@ from aiogram.dispatcher.filters import Command
 from aiogram.dispatcher import FSMContext
 
 from bot import dp, bot
-from weather import register_weather_handler
-from currency_converter import currency_converter
-from nice_animals import nice_animals
+from handler_weather import register_weather_handler
+from handler_converter import register_currency_converter_handler
+from handler_animals import nice_animals
 from settings import config
 from markups import markup
 
@@ -14,11 +14,12 @@ from markups import markup
 async def start(message: types.Message):
     await message.answer(
         '<b>Это тестовое задание для ИП Богданов Денис Александрович</b>',
-        reply_markup=markup.UserMainMarkup.main_markup())
+        reply_markup=markup.MainMarkup.main_markup())
 
 
 async def on_startup(_):
     register_weather_handler(dp)
+    register_currency_converter_handler(dp)
 
 
 if __name__ == '__main__':

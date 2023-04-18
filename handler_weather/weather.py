@@ -14,13 +14,13 @@ class WeatherHandler:
     async def main_menu(callback: types.CallbackQuery, state: FSMContext):
         await callback.message.edit_text(
             "<b>Это тестовое задание для ИП Богданов Денис Александрович</b>",
-            reply_markup=markup.UserMainMarkup.main_markup())
+            reply_markup=markup.MainMarkup.main_markup())
         await state.finish()
 
     @staticmethod
     async def weather_enter_city(callback: types.CallbackQuery):
         await callback.message.edit_text("Введите город:",
-                                         reply_markup=markup.UserMainMarkup.back_markup())
+                                         reply_markup=markup.MainMarkup.back_markup())
         await states.UserStates.weather.set()
 
     @staticmethod
@@ -38,11 +38,11 @@ class WeatherHandler:
                                    f"Температура: <b>{data.get('main').get('temp')} градусов цельсия</b>\n"
                                    f"Ощущается как: <b>{data.get('main').get('feels_like')} градусов цельсия</b>\n"
                                    f"Давление: <b>{data.get('main').get('pressure')} мм. рт. ст.</b>",
-                                   reply_markup=markup.UserMainMarkup.back_markup())
+                                   reply_markup=markup.MainMarkup.back_markup())
         except Exception as ex:
             await bot.send_message(message.from_user.id,
                                    f"Город {city} не найден!\n"
                                    f"Ошибка - {ex}",
-                                   reply_markup=markup.UserMainMarkup.back_markup())
+                                   reply_markup=markup.MainMarkup.back_markup())
 
 

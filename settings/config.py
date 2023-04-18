@@ -9,6 +9,8 @@ AUTHOR = 'Vasiliy Turtugeshev'
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 WEATHER_TOKEN = os.getenv('WEATHER_TOKEN')
+CURRENCY_TOKEN = os.getenv('CURRENCY_TOKEN')
+CURRENCY1_TOKEN = os.getenv('CURRENCY1_TOKEN')
 
 KEYBOARD = {
     "FAST_FORWARD_BUTTON": emojize(':fast-forward_button:'),

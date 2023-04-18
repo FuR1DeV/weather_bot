@@ -6,7 +6,7 @@ from .weather import WeatherHandler
 from states import states
 
 
-def register_weather_handler(disp: Dispatcher):
+def register_weather_handler(disp: Dispatcher) -> None:
 
     """Weather handler"""
 
