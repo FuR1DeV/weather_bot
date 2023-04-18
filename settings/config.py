@@ -9,12 +9,13 @@ AUTHOR = 'Vasiliy Turtugeshev'
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 WEATHER_TOKEN = os.getenv('WEATHER_TOKEN')
-CURRENCY_TOKEN = os.getenv('CURRENCY_TOKEN')
-CURRENCY1_TOKEN = os.getenv('CURRENCY1_TOKEN')
 
 KEYBOARD = {
-    "FAST_FORWARD_BUTTON": emojize(':fast-forward_button:'),
-    "FAST_REVERSE_BUTTON": emojize(':fast_reverse_button:'),
-    'INFORMATION': emojize(':information:'),
+    'GRINNING_CAT': emojize(':grinning_cat:'),
+    'WEARY_CAT': emojize(':weary_cat:'),
+    'DOLLAR_BANKNOTE': emojize(':dollar_banknote:'),
+    'MONEY_BAG': emojize(':money_bag:'),
+    'SUN': emojize(':sun:'),
+    'CLOUD_WITH_LIGHTNING_AND_RAIN': emojize(':cloud_with_lightning_and_rain:'),
     'RIGHT_ARROW_CURVING_LEFT': emojize(':right_arrow_curving_left:'),
 }

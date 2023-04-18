@@ -50,4 +50,11 @@ class CurrencyConverterHandler:
                                            f"<i>За</i> <b>{user_input} {data.get('first')}</b> "
                                            f"<i>дают</i> <b>{result} {data.get('second')}</b>",
                                            reply_markup=markup.ConverterMarkup.pairs())
-        await state.finish()
+            await state.finish()
+        else:
+            await bot.delete_message(message.from_user.id, message.message_id)
+            await bot.delete_message(message.from_user.id, message.message_id - 1)
+            await bot.send_message(message.from_user.id,
+                                   f"<b>Нужно ввести натуральное число!\n"
+                                   f"Введите нужную сумму</b>",
+                                   reply_markup=markup.ConverterMarkup.back_to_pairs())
