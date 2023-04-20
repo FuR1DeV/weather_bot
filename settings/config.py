@@ -16,6 +16,7 @@ KEYBOARD = {
     'DOLLAR_BANKNOTE': emojize(':dollar_banknote:'),
     'MONEY_BAG': emojize(':money_bag:'),
     'SUN': emojize(':sun:'),
+    'EXCLAMATION_QUESTION_MARK': emojize(':exclamation_question_mark:'),
     'CLOUD_WITH_LIGHTNING_AND_RAIN': emojize(':cloud_with_lightning_and_rain:'),
     'RIGHT_ARROW_CURVING_LEFT': emojize(':right_arrow_curving_left:'),
 }

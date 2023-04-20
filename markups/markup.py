@@ -18,9 +18,13 @@ class MainMarkup:
         animals = InlineKeyboardButton(text=f'{KEYBOARD.get("GRINNING_CAT")} Показать милого пушистика '
                                             f'{KEYBOARD.get("WEARY_CAT")}',
                                        callback_data='user_watching_animals')
+        poll = InlineKeyboardButton(text=f'{KEYBOARD.get("EXCLAMATION_QUESTION_MARK")} Создать опрос '
+                                         f'{KEYBOARD.get("EXCLAMATION_QUESTION_MARK")}',
+                                    callback_data='user_create_poll')
         main.insert(weather)
         main.insert(currency)
         main.insert(animals)
+        main.insert(poll)
         return main
 
     @staticmethod
@@ -69,4 +73,19 @@ class ConverterMarkup:
                                          f'{KEYBOARD.get("RIGHT_ARROW_CURVING_LEFT")} ',
                                     callback_data='user_currency_converter')
         main.insert(back)
+        return main
+
+
+class CreatePolls:
+
+    @staticmethod
+    def back_or_finish() -> InlineKeyboardMarkup:
+        main = InlineKeyboardMarkup(row_width=2)
+        back = InlineKeyboardButton(text=f'{KEYBOARD.get("RIGHT_ARROW_CURVING_LEFT")} С начала '
+                                         f'{KEYBOARD.get("RIGHT_ARROW_CURVING_LEFT")} ',
+                                    callback_data='user_create_poll')
+        finish = InlineKeyboardButton(text=f'Отправить',
+                                      callback_data='user_finish_poll')
+        main.insert(back)
+        main.insert(finish)
         return main

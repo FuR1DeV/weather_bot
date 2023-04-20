@@ -1,9 +1,12 @@
 import requests
 from aiogram import types, executor
+from aiogram.dispatcher import FSMContext
 
+import states.states
 from bot import dp, bot
 from handler_weather import register_weather_handler
 from handler_converter import register_currency_converter_handler
+from handler_polls import register_create_polls_handler
 from markups import markup
 
 
@@ -32,7 +35,7 @@ async def on_startup(_):
     #  При запуске бота, регистрируются нужные хэндлеры
     register_weather_handler(dp)
     register_currency_converter_handler(dp)
-
+    register_create_polls_handler(dp)
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True, on_startup=on_startup)

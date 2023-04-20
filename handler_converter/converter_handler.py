@@ -10,14 +10,6 @@ from states import states
 #  Использую классы для общей компоновки по типу сущности
 class CurrencyConverterHandler:
 
-    #  Когда мы возвращаемся в главное меню мы сбрасываем машину состояний FSM
-    @staticmethod
-    async def main_menu(callback: types.CallbackQuery, state: FSMContext):
-        await callback.message.edit_text(
-            "<b>Это тестовое задание для ИП Богданов Денис Александрович</b>",
-            reply_markup=markup.MainMarkup.main_markup())
-        await state.finish()
-
     @staticmethod
     async def enter_currency(callback: types.CallbackQuery):
         await callback.message.edit_text("<i>Выберите пары которые хотите конвертировать</i>",
